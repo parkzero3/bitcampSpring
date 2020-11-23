@@ -1,0 +1,7 @@
+/.metadata/
+.metadata/
+bin/
+target/
+Servers/
+.DS_Store
+/.classpath

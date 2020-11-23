@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	<!-- 
+		Intercepter 처리를 위해서는 beans 시작태그에 context, mvc가 추가
+		(Namespaces) 탭에서 context,mvc 체크
+		
+		Intercepter할 맵핑 주소를 기록한다.
+		
+		DispacherServelet 알아서 접속이 이뤄지면 intercepter 한다.
+		web.xml에 mvc-context.xml 파일을 등록한다.
+	 -->
+	 <mvc:interceptors>
+	 	<mvc:interceptor>
+	 		<mvc:mapping path="/boardWriteOk"/>
+	 		<mvc:mapping path="/editOk"/>
+	 		<mvc:mapping path="/boardEdit"/>
+	 		<mvc:mapping path="/boardDel"/>
+	 		<mvc:mapping path="/answerWrite"/>
+	 		<mvc:mapping path="/answerWriteOk"/>
+	 		<mvc:mapping path="/replyWriteForm"/>
+	 		<mvc:mapping path="/replyWriteFormOk"/>
+	 		<bean class="com.bitcamp.test.interceptor.LoginInterceptor"></bean>
+	 	</mvc:interceptor>
+	 </mvc:interceptors>
+</beans>
